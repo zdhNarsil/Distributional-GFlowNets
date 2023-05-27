@@ -1,0 +1,55 @@
+defaults:
+  - override hydra/launcher: submitit_slurm
+
+user: ${oc.env:USER}
+
+wandb: false
+debug: false
+seed: 0
+array: ""
+print_array_length: false
+run: 0
+save_path: results/
+
+# MDP
+min_blocks: 2
+max_blocks: 8
+sample_prob: 1
+replay_mode: online
+random_action_prob: 0.05
+reward_exp: 10
+reward_norm: 8
+R_min: 0.1
+early_stop_reg: 0.1
+include_nblocks: false
+ignore_parents: false
+
+# Architecture
+nemb: 256
+num_conv_steps: 10
+repr_type: block_graph
+model_version: v4
+
+# GFlowNet
+floatX: float64
+mbsize: 4
+num_iterations: 250000
+obj: fm
+lr: 5e-4
+opt_beta: 0.9
+opt_beta2: 0.999
+opt_epsilon: 1e-8
+clip_grad: 0.
+clip_loss: 0.
+bootstrap_tau: 0
+weight_decay: 0
+leaf_coef: 10.
+log_reg_c: 2.5e-5
+balanced_loss: true
+initial_log_Z: 30
+subtb_lambda: 0.99
+# Distributional GFlowNet
+N: 16
+quantile_dim: 256
+nvec: 256
+ts: false
