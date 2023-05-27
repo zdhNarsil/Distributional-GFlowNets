@@ -111,7 +111,7 @@ def make_model(args, mdp, out_per_mol=1):
 class Proxy:
     def __init__(self, args, bpath, device):
         home_path = os.path.expanduser("~")
-        proxy_path = f"{home_path}/Distributional-GFlowNet/mols/data/pretrained_proxy"
+        proxy_path = f"{home_path}/Distributional-GFlowNets/mols/data/pretrained_proxy"
         eargs = pickle.load(gzip.open(f'{proxy_path}/info.pkl.gz'))['args']
         params = pickle.load(gzip.open(f'{proxy_path}/best_params.pkl.gz'))
         self.mdp = MolMDPExtended(bpath)
@@ -480,7 +480,7 @@ def main_mols(args):
     if args.wandb:
         wandb.init(project="GFN-mol", config=args, save_code=True)
 
-    bpath = "~/Distributional-GFlowNet/mols/data/blocks_PDB_105.json"
+    bpath = "~/Distributional-GFlowNets/mols/data/blocks_PDB_105.json"
     device = torch.device('cuda')
 
     if args.floatX == 'float32':
@@ -521,7 +521,7 @@ def seed_torch(seed, verbose=True):
         print("==> Set seed to {:}".format(seed))
 
 def get_mol_path_graph(mol):
-    bpath = "~/Distributional-GFlowNet/mols/data/blocks_PDB_105.json"
+    bpath = "~/Distributional-GFlowNets/mols/data/blocks_PDB_105.json"
     mdp = MolMDPExtended(bpath)
     mdp.post_init(torch.device('cpu'), 'block_graph')
     mdp.build_translation_table()
@@ -579,7 +579,7 @@ def compute_correlation(model, mdp, args):
     tf = lambda x: torch.tensor(x, device=device).to(args.floatX)
     tint = lambda x: torch.tensor(x, device=device).long()
     home_path = os.path.expanduser("~")
-    test_mols = pickle.load(gzip.open(f'{home_path}/Distributional-GFlowNet/mols/data/some_mols_U_1k.pkl.gz'))
+    test_mols = pickle.load(gzip.open(f'{home_path}/Distributional-GFlowNets/mols/data/some_mols_U_1k.pkl.gz'))
 
     logsoftmax = nn.LogSoftmax(0)
     logp = []
