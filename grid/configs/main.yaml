@@ -1,0 +1,65 @@
+defaults:
+  - override hydra/launcher: submitit_slurm
+
+user: ${oc.env:USER}
+
+wandb: 0
+save_path: 'output/flow_insp_0.pkl.gz'
+device: cpu
+seed: 0
+progress: 1
+
+method: fm
+lr: 1e-4
+opt: adam
+adam_beta1: 0.9
+adam_beta2: 0.999
+momentum: 0.9
+mbsize: 16
+train_to_sample_ratio: 1
+n_hid: 256
+n_layers: 2
+n_train_steps: 20000
+num_empirical_loss: 200000
+
+# Env
+func: corner
+R0: 0.001
+R1: 0.5
+R2: 2.
+horizon: 16
+ndim: 2
+
+# MCMC
+bufsize: 16
+
+# GFlowNet
+bootstrap_tau: 0.
+replay_strategy: none
+replay_sample_size: 2
+replay_buf_size: 100
+exp_weight: 0.
+temp: 1.
+rand_pb: 0
+tlr: 1e-3
+zlr: 1e-1
+leaf_coef: 1.
+# Distributional GFlowNet
+ts: false
+N: 8
+quantile_dim: 256
+## risk distortion
+beta: neutral
+eta: 0.
+indist: false
+outdist: false
+
+# PPO
+ppo_num_epochs: 32
+ppo_epoch_size: 16
+ppo_clip: 0.2
+ppo_entropy_coef: 0.1
+clip_grad_norm: 0.
+
+# SAC
+sac_alpha: -1.0766 # 0.98*np.log(1/3)
