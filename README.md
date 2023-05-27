@@ -1,4 +1,4 @@
-# Distributional GFlowNet - Quantile Matching
+# Distributional GFlowNets - Quantile Matching
 
 [//]: # (---)
 
