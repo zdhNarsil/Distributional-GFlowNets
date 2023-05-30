@@ -2,10 +2,15 @@
 
 [//]: # (---)
 
-Code for our paper [Distributional GFlowNets with Quantile Flows](https://arxiv.org/abs/2302.05793).
+PyTorch implementation for our paper 
+
+[Distributional GFlowNets with Quantile Flows](https://arxiv.org/abs/2302.05793).
+
+[Dinghuai Zhang\*](https://zdhnarsil.github.io/), [Ling Pan\*](https://ling-pan.github.io/), [Ricky T. Q. Chen](https://rtqichen.github.io//), Aaron Courville, [Yoshua Bengio](https://yoshuabengio.org/).
+
 
 <!-- <p align="center"> -->
-<img src="https://s1.ax1x.com/2023/05/27/p9Lfjn1.png" border="0" width=40% class="center" />
+<img src="https://s1.ax1x.com/2023/05/27/p9Lfjn1.png" border="0" width=45% class="center" />
 <!-- </p> -->
 
 
