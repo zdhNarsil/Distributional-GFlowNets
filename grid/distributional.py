@@ -109,7 +109,7 @@ class DistFlowNetAgentIQN:
         s = tf([i.reset()[0] for i in self.envs])
         done = [False] * mbsize
         while not all(done):
-            with torch.no_grad(): 
+            with torch.no_grad():
                 if self.thompson_sampling and eval is False:
                     tau = torch.rand(s.shape[0], self.N).to(self.device)
                     preds = self.model(s, self.g_inv(tau))
@@ -118,7 +118,7 @@ class DistFlowNetAgentIQN:
                 else:
                     quantiles = torch.rand(s.shape[0], self.N).to(s.device)
                     quantiles = self.g_inv(quantiles)
-                    pred = self.model(s, quantiles).mean(dim=1)  # (bs, ndim+1
+                    pred = self.model(s, quantiles).logsumexp(dim=1)  # (bs, ndim+1
 
                 acts = Categorical(logits=pred).sample()
                 

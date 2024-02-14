@@ -257,7 +257,7 @@ class DistGraphAgent(nn.Module):
         quantiles = torch.rand(int(graph_data.batch.max() + 1), self.n_quantiles,
             dtype=dtype, device=graph_data.x.device)
         stem_preds, mol_preds = self.forward_with_quantile(graph_data, quantiles)
-        return stem_preds.mean(dim=1), mol_preds.mean(dim=1)
+        return stem_preds.logsumexp(dim=1), mol_preds.logsumexp(dim=1)
     
     def forward_orig(self, graph_data, vec_data=None, do_stems=True, pdb=False):
         # return self.forward(graph_data, pdb=pdb)

@@ -2,7 +2,7 @@
 
 [//]: # (---)
 
-PyTorch implementation for our paper 
+PyTorch implementation for our TMLR paper 
 
 [Distributional GFlowNets with Quantile Flows](https://arxiv.org/abs/2302.05793).
 
